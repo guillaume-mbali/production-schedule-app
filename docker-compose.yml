@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+    phpstan:
+        build:
+            context: .
+        volumes:
+            - .:/app
+        command: phpstan analyse --level=max --memory-limit=1G
+        working_dir: /app
+        environment:
+            - PATH=/root/.composer/vendor/bin:$PATH
