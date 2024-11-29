@@ -6,22 +6,15 @@ This project is a production scheduling application designed to optimize the wor
 
 ![Production Schedule Overview](public/images/production-schedule.png)
 
-## Installation
+**About the Project**
+This application was built using the following technologies and tools:
 
-Follow the steps below to set up the project locally or deploy it to a platform like Heroku.
+-   Laravel as the PHP framework.
+-   Blade for templating.
+-   Tailwind CSS for styling.
+-   FullCalendar for displaying and managing the production schedule.
+-   Shared Components for modular and reusable frontend elements.
+-   Controller-Service-Model-Route Architecture for structured backend development.
+-   PHPStan Integration [https://phpstan.org/](https://phpstan.org/).
 
-### Prerequisites
-
--   **Node.js** (v16.x recommended)
--   **npm** (Node Package Manager)
--   **PHP** (For Laravel)
--   **Composer** (For PHP dependencies)
-
-### Steps to run locally
-
-1. **Clone the repository**:
-
-    ```bash
-    git clone https://github.com/your-repo/production-schedule-optimization.git
-    cd production-schedule-optimization
-    ```
+PHPStan can be integrated into a Continuous Integration (CI) pipeline to automatically verify the code on every push. This helps maintain a robust and error-free codebase.
