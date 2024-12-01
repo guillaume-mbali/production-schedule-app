@@ -166,7 +166,9 @@ class OrderController extends Controller
 
         // Calculate production durations for each order item
         $orderItemsWithDurations = $order->orderItems->map(function ($orderItem) use ($order) {
-            $productionDuration = $this->scheduleService->calculateProductionDuration($order->orderItems); // Pass the entire orderItems collection
+            foreach ($order->orderItems as $item) {
+                $productionDuration = $this->scheduleService->calculateProductionDuration($item);
+            }
 
             return [
                 'product_name' => $orderItem->product->name,
@@ -181,8 +183,6 @@ class OrderController extends Controller
 
         return view('admin.order.edit', compact('order', 'clients', 'products', 'productTypes', 'orderItemsWithDurations'));
     }
-
-
 
     /**
      * Update the specified order in the database.

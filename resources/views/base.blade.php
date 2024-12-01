@@ -17,11 +17,11 @@
 <body class="bg-gray-100 text-gray-900">
 
     <div class="min-h-screen flex">
-        <aside class="w-64 bg-white shadow-md z-50">
+        <aside class="w-1/5 shadow-md z-50 my-4">
             @include('layouts.sidebar')
         </aside>
 
-        <main class="flex-1 p-6">
+        <main class="w-4/5 p-6">
             @yield('content')
         </main>
     </div>

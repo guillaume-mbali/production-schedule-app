@@ -40,21 +40,24 @@ class ScheduleService
     }
 
     /**
-     * Calculates the total production duration for an order based on its order items.
-     * The total production duration is rounded to the nearest whole number.
+     * Calculates the total production duration for one or more order items.
      *
-     * @param Collection<int, OrderItem> $orderItems
-     * @return int
+     * @param OrderItem|Collection<int, OrderItem> $orderItems An OrderItem instance or a collection of OrderItem instances.
+     * @return int The total production duration in minutes.
      */
-    public function calculateProductionDuration(Collection $orderItems): int
+    public function calculateProductionDuration(OrderItem|Collection $orderItems): int
     {
         $totalProductionDuration = 0;
 
+        // If a single OrderItem is provided, convert it to a collection for uniform processing
+        if ($orderItems instanceof OrderItem) {
+            $orderItems = collect([$orderItems]);
+        }
+
         foreach ($orderItems as $orderItem) {
-            // Ensure the product and its type exist
             $product = $orderItem->product;
             if (!$product) {
-                continue;  // Skip the item if the product does not exist
+                continue;
             }
 
             $productionSpeed = $product->productType->production_speed;
@@ -64,10 +67,10 @@ class ScheduleService
 
             $totalProductionDuration += $productionDuration;
         }
-
-        // Return the total duration rounded to the nearest integer
-        return (int) round($totalProductionDuration);
+        return $totalProductionDuration;
     }
+
+
 
     /**
      * Get the start time for an order, adjusting for overlap with the previous order.

@@ -1,6 +1,6 @@
-<div class="flex flex-col h-full p-6 fixed z-50">
-    <div class="flex justify-center items-center mb-6">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-24 h-24 object-contain">
+<div class="flex flex-col h-full w-full p-4 gap-8">
+    <div class="flex justify-center items-center top-0 left-0 z-50">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-24 h-24 object-contain transition-none">
     </div>
 
     <ul class="space-y-2">

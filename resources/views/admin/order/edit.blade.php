@@ -50,7 +50,6 @@
                             'product_name' => ['label' => 'Produit'],
                             'quantity' => ['label' => 'Quantité'],
                             'production_duration' => ['label' => 'Durée de Production'],
-                            'changeover_duration' => ['label' => 'Durée de Changement'],
                         ],
                         'rows' => $orderItemsWithDurations,
                     ])

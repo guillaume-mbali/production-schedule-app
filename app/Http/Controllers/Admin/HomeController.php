@@ -37,6 +37,7 @@ class HomeController extends Controller
             ->orderBy('deadline', 'asc')
             ->get();
 
+
         // Calculate total products and order count
         $totalProducts = $orders->sum(fn($order) => $order->orderItems->count());
         $orderCount = $orders->count();
@@ -64,7 +65,6 @@ class HomeController extends Controller
             $changeoverTime = 0;
             if ($lastProductType && $lastProductType !== $productTypeId) {
                 $changeoverTime = $this->scheduleService->getChangeoverTime($lastProductType, $productTypeId);
-                $productionDuration += $changeoverTime;
             }
 
             // Calculate the end time based on the adjusted start time and production duration
@@ -72,6 +72,7 @@ class HomeController extends Controller
 
             // Add event to the events array
             $events[] = $this->formatEventData($order, $start, $end, $changeoverTime, $productTypeName, $orderItems, $productionDuration);
+
             // Update state for next iteration
             $lastEndTime = $end;
             $lastProductType = $productTypeId;

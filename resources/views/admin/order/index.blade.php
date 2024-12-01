@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('content')
-    <div class="container mx-auto px-6 py-8">
+    <div class="container mx-auto px-4 py-6">
         <div class="flex items-center justify-between mb-6 bg-pink-200 px-4 rounded-md">
             <h1 class="text-2xl font-bold text-pink-900 my-4">Liste des commandes</h1>
             @include('shared.link-button', [
